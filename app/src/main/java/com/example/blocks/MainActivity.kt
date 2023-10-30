@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var fab: Button
+    private lateinit var button: Button
     private lateinit var adapter: MainAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
                 adapter.items.add(i)
             }
         }
-        fab = findViewById(R.id.fab)
-        fab.setOnClickListener {
+        button = findViewById(R.id.but)
+        button.setOnClickListener {
             adapter.items.add(adapter.items.size - 1)
             adapter.notifyItemInserted(adapter.items.size - 1)
         }
