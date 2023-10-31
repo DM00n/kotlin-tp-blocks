@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = GridLayoutManager(
             this,
             if (this.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                3
+                PORTRAIT_SPAN
             } else {
-                4
+                LANDSCAPE_SPAN
             }
         )
         savedInstanceState?.let {
-            for (i in 0 until it.getInt("count")) {
+            for (i in 0 until it.getInt(COUNT)) {
                 adapter.items.add(i)
             }
         }
@@ -43,4 +43,11 @@ class MainActivity : AppCompatActivity() {
         super.onSaveInstanceState(outState)
         outState.putInt("count", adapter.itemCount)
     }
+
+    companion object{
+        private const val COUNT = "count"
+        private const val PORTRAIT_SPAN = 3
+        private const val LANDSCAPE_SPAN = 4
+    }
+
 }
